@@ -28,7 +28,7 @@ public class GemCount : MonoBehaviour {
         numericalGems = PlayerPrefs.GetInt("gems", 0);
 
         //update visual score
-        gemText.text = numericalGems.ToString();
+       // gemText.text = numericalGems.ToString();
 	}
 	
 	// Update is called once per frame

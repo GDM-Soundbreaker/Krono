@@ -7,14 +7,16 @@ public class Coin : MonoBehaviour {
     //variable to let us add to the score
     // public so we can drag and drop
     public Score scoreObject;
-    public GemCount gemObject;
 
     //Variable to hold the coin's point value
     // Public so we can change in editor
-    public int coinValue; 
-    public int gemValue;
-	// Use this for initialization
-	void Start () {
+    public int coinValue;
+
+    //Audio source
+    public AudioSource collectSFX;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -28,6 +30,8 @@ public class Coin : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+
         //check if the thing we touched was the player
         Player playerScript = collision.collider.GetComponent<Player>();
 
@@ -36,9 +40,14 @@ public class Coin : MonoBehaviour {
         {
             //Player hit
 
+            
+
+
             //Add to score based on value
             scoreObject.AddScore(coinValue);
-            gemObject.AddGems(gemValue);
+
+            //Play audio
+            collectSFX.Play();
 
             //Destroy the gameObject that this script is attached to (the coin)
             Destroy(gameObject);
