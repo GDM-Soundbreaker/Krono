@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public Animator playerAnimator;
     public SpriteRenderer playerSprite;
     public Collider2D playerCollider;
+    
+    //jump sound effect source
+     public AudioSource jumpSFX;
 
     // Variable to keep a reference to the Lives display object
     public Lives livesObject;
@@ -80,6 +83,9 @@ public class Player : MonoBehaviour
 
             // Give the velocity to the rigidbody
             physicsBody.velocity = velocity;
+            
+            //play audio
+            jumpSFX.Play();
         }
 
 
